@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha --require @babel/register ",
-    "start": "nodemon app.js --exec babel-node --",
-    "coveralls": "jest --coverage && cat ./tests/coverage/lcov.info | coveralls"
+    "start": "nodemon app.js --exec babel-node --"
   },
   "repository": {
     "type": "git",
