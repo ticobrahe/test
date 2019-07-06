@@ -3,6 +3,8 @@ sudo: false
 language: node_js
 
 node_js:
-  - node
+  - "node"
 
-script: npm run test
+script: {
+  "test": "npm run test"
+}
