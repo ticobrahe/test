@@ -2,11 +2,10 @@ sudo: false
 language: node_js
 
 node_js:
- - "stable"
+  - "stable"
 
 script:
- - npm test
- -npm run coveralls
+  - npm test
  
 after_success:
   - "npm run coveralls"
