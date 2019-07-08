@@ -2,14 +2,17 @@
   "name": "test",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "nyc --reporter=html --reporter=text mocha -r @babel/polyfill -r @babel/core -r @babel/register",
-    "start": "nodemon app.js --exec babel-node --",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls"
-  },
+  "main": "app.js",
   "engines": {
-    "node": "8.11.1"
+    "node": "10.X"
+  },
+  "scripts": {
+    "test": "mocha --timeout 50000 --require @babel/register --exit",
+    "generate-lcov": "nyc report --reporter=text-lcov > lcov.info",
+    "coveralls-coverage": "coveralls < lcov.info",
+    "coverage": "nyc npm test && npm run generate-lcov && npm run coveralls-coverage",
+    "dev": "nodemon app.js --exec babel-node --",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -27,7 +30,8 @@
     "body-parser": "^1.19.0",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.1",
+    "pg": "^7.11.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
